@@ -56,12 +56,14 @@ echo "[WAIT] Waiting 5 seconds before showing logs..."
 sleep 5
 
 logfile="$HOME/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)"
-echo "[LOG] Tailing log file: $logfile"
-echo
-echo "------------------------------------------------------------"
-echo "Follow updates and node tips: https://x.com/BwgBwp"
-echo "Press Ctrl+C to exit log tailing and return to shell"
-echo "------------------------------------------------------------"
-echo
+
+echo -e "\n\033[1;34m[LOG]\033[0m Tailing log file: $logfile\n"
+
+echo -e "\033[1;33m"
+echo "============================================================"
+echo " FOLLOW UPDATES & NODE TIPS: https://x.com/BwgBwp"
+echo " Press Ctrl+C to EXIT log tailing and return to shell"
+echo "============================================================"
+echo -e "\033[0m"
 
 tail -f "$logfile"
