@@ -52,10 +52,16 @@ sudo systemctl enable zgs
 echo "[INFO] Starting zgs service..."
 sudo systemctl start zgs
 
-# Wait for the service to initialize
-echo "[INFO] Waiting for 5 seconds..."
+echo "[WAIT] Waiting 5 seconds before showing logs..."
 sleep 5
 
-# Tail the log file with the current UTC date appended
-echo "[INFO] Tailing the log file..."
-tail -f "$HOME/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)"
+logfile="$HOME/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)"
+echo "[LOG] Tailing log file: $logfile"
+echo
+echo "------------------------------------------------------------"
+echo "Follow updates and node tips: https://x.com/BwgBwp"
+echo "Press Ctrl+C to exit log tailing and return to shell"
+echo "------------------------------------------------------------"
+echo
+
+tail -f "$logfile"
